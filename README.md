@@ -38,7 +38,7 @@ Yong Li, Lihui Wang, Yuan Ren. "Combined Wavefront-based 3D Distance Transform f
 
 ### Test on the corridor dataset.
 
-The codes are implemented on the ROS. We will release the source code soon. **For codes, please email us. ** And the corridor dataset can be found at https://pan.baidu.com/s/1TRmudWfDG11BMxEWUBvZig. The access key is "12re".
+The codes are implemented on the ROS. We will release the source code soon. *For codes, please email us.* And the corridor dataset can be found at https://pan.baidu.com/s/1TRmudWfDG11BMxEWUBvZig. The access key is "12re".
 
 ```
 rosbag paly corridor.bag
