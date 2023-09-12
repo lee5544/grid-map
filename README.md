@@ -33,7 +33,7 @@ Yong Li, Lihui Wang, Yuan Ren. "Combined Wavefront-based 3D Distance Transform f
 
 <p align = "center">
 <img src="figs/pipeline.png" width = "300" height = "150" border="5" />
-<img src="figs/method.png" width = "300" height = "150" border="5" />
+<img src="figs/method.png" width = "260" height = "150" border="5" />
 </p>
 
 ### Test on the corridor dataset.
