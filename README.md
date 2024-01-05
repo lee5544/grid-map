@@ -49,6 +49,10 @@ roslaunch gridmap esdf_map_corridor.launch
 <img src="figs/corridorvisualization.png" width = "260" height = "150" border="5" />
 <img src="figs/corridor.gif" width = "260" height = "150" border="5" />
 </p>
+
+### Onboard flight.
+
+
 ## Licence
 
 The source code is released under [GPLv3](http://www.gnu.org/licenses/) license.
