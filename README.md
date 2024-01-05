@@ -51,7 +51,9 @@ roslaunch gridmap esdf_map_corridor.launch
 </p>
 
 ### Onboard flight.
-
+<p align = "center">
+<img src="figs/onboard_fpv.gif" width = "260" height = "150" border="5" />
+</p>
 
 ## Licence
 
