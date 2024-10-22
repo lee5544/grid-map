@@ -1,0 +1,38 @@
+%YAML:1.2
+---
+PlanMap:
+  resolution: 0.1 # (unit: m)
+  sogm_size_x: 10 # (unit: m)
+  sogm_size_y: 10 # (unit: m)
+  sogm_size_z: 5 # (unit: m)
+  p_hit: 0.65
+  p_miss: 0.35
+  p_min: 0.10
+  p_max: 0.97
+  p_occ: 0.80
+
+DepthCamera:
+  heigth: 640
+  width: 480
+  fx: 392.365234375
+  fy: 392.365234375
+  cx: 320.01055908203125
+  cy: 241.12890625
+
+  k_depth_scaling_factor: 1000
+  depth_maxdist: 5.0
+  depth_mindist: 0.1
+  depth_filter_margin: 20
+  skip_pixel: 4
+
+  R_C_2_B: !!opencv-matrix #normal realsense
+    rows: 3
+    cols: 3
+    dt: d
+    data: [0, 0, 1, -1, 0, 0, 0, -1, 0]
+
+  T_C_2_B: !!opencv-matrix
+    rows: 1
+    cols: 3
+    dt: d
+    data: [0.0, 0.0, 0.0]

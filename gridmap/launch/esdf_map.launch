@@ -1,0 +1,20 @@
+<launch>
+
+    <node pkg="gridmap" name="esdf_node" type="esdf_node" output="screen">
+
+        <param name="/paramfile/path" value="$(find gridmap)/config/esdf_map.yaml" type="string"/>
+        
+        <remap from="/odom" to="/t265/odom/sample"/>
+        <remap from="/depth" to="/D455/depth/image_rect_raw"/>
+
+        <!-- <remap from="/odom" to="/mavros/local_position/odom"/>
+        <remap from="/depth" to="/realsense_plugin/camera/depth/image_raw"/> -->
+
+        <!-- <param name="/paramfile/path" value="$(find gridmap)/config/sogm_map.yaml" type="string"/> -->
+    </node>
+
+    <node pkg="gridmap" name="global_gridmap_node" type="global_gridmap_node" output="screen" />
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find gridmap)/launch/default.rviz" required="true" />
+
+</launch>
