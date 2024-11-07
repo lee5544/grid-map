@@ -29,8 +29,16 @@ publisher={MDPI}
 
 The inESDFMap module provides a fast incremental distance transform methods to construct the distance map (DM) based on the SOGM.
 
-Yong Li, Lihui Wang, Yuan Ren. "Combined Wavefront-based 3D Distance Transform for Online Motion Planning of Unmanned Aerial Vehicles."
-
+@ARTICLE{10736427,
+  author={Li, Yong and Wang, Lihui and Ren, Yuan},
+  journal={IEEE Sensors Journal}, 
+  title={Incremental Distance Transform for Online Motion Planning based on Combined Wavefront}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},},
+  doi={10.1109/JSEN.2024.3483849}}
+  
 <p align = "center">
 <!-- <img src="figs/pipeline.png" width = "300" height = "150" border="5" /> -->
 <img src="figs/method.png" width = "460" height = "260" border="5" />
