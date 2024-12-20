@@ -343,25 +343,43 @@ std::vector<int> *SOGMMap::getNewFree()
 
 double SOGMMap::getOccupancy(const Eigen::Vector3d pos)
 {
-    int index = WorldToIndex(pos);
-    return occ_value_[index];
+    Eigen::Vector3i voxel = WorldToVoxel(pos);
+    if (isInMap(voxel))
+        return occ_value_[WorldToIndex(pos)];
+    else
+        return clamp_min_log_;
 }
 
 bool SOGMMap::isOccupied(const Eigen::Vector3i voxel)
 {
-    int index = VoxelToIndex(voxel);
-    return isOccupied(index);
+    if (isInMap(voxel))
+    {
+        if (occ_value_[VoxelToIndex(voxel)] >= min_occupancy_log_)
+            return true;
+        else
+            return false;
+    }
+    else
+        return false;
 }
 
 bool SOGMMap::isOccupied(const Eigen::Vector3d pos)
 {
-    int index = WorldToIndex(pos);
-    return isOccupied(index);
+    Eigen::Vector3i voxel = WorldToVoxel(pos);
+    return isOccupied(voxel);
+    // if (isInMap(voxel))
+    // {
+    //     if (occ_value_[VoxelToIndex(voxel)] >= min_occupancy_log_)
+    //         return true;
+    //     else
+    //         return false;
+    // }
+    // else
+    //     return false;
 }
 
 bool SOGMMap::isOccupied(const int index)
 {
-
     if (occ_value_[index] >= min_occupancy_log_)
         return true;
     else

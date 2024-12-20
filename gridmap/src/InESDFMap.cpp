@@ -441,7 +441,7 @@ bool InESDFMap::isOccupied(const Eigen::Vector3d pos)
 
 bool InESDFMap::isOccupied(const Eigen::Vector3i voxel, double dist)
 {
-    if (esdf_value_[SOGMPtr_->VoxelToIndex(voxel)] >= dist)
+    if (getDist(voxel) >= dist)
         return false;
     else
         return true;
@@ -457,18 +457,37 @@ bool InESDFMap::isOccupied(const Eigen::Vector3d pos, double dist = 0.01)
 
 double InESDFMap::getDist(const Eigen::Vector3i voxel)
 {
-    return esdf_value_[SOGMPtr_->VoxelToIndex(voxel)];
+    if (SOGMPtr_->isInMap(voxel))
+    {
+        return esdf_value_[SOGMPtr_->VoxelToIndex(voxel)];
+    }
+    else
+        return max_distance_;
 }
 
 double InESDFMap::getDist(const Eigen::Vector3d pos)
 {
-    return esdf_value_[SOGMPtr_->WorldToIndex(pos)];
+    Eigen::Vector3i voxel = SOGMPtr_->WorldToVoxel(pos);
+    // return getDist(voxel);
+    if (SOGMPtr_->isInMap(voxel))
+    {
+        return esdf_value_[SOGMPtr_->VoxelToIndex(voxel)];
+    }
+    else
+        return max_distance_;
 }
 
 Eigen::Vector3d InESDFMap::getCoc(const Eigen::Vector3d pos)
 {
-    Eigen::Vector3i temp = coci_value_[SOGMPtr_->WorldToIndex(pos)];
-    return SOGMPtr_->VoxelToWorld(temp);
+    Eigen::Vector3i temp;
+    Eigen::Vector3i voxel = SOGMPtr_->WorldToVoxel(pos);
+    if (SOGMPtr_->isInMap(voxel))
+    {
+        temp = coci_value_[SOGMPtr_->VoxelToIndex(voxel)];
+        return SOGMPtr_->VoxelToWorld(temp);
+    }
+    else
+        return SOGMPtr_->VoxelToWorld(coci_unknown_);
 }
 
 Eigen::Vector3d InESDFMap::getGrad(const Eigen::Vector3d pos)
