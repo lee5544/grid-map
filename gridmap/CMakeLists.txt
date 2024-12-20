@@ -50,6 +50,7 @@ add_library(gridmap
 target_link_libraries(gridmap
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+  ${OpenCV_LIBS}
 )
 
 add_executable(sogm_node
@@ -64,6 +65,7 @@ add_executable(sogm_node
 target_link_libraries(sogm_node
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+  ${OpenCV_LIBS}
 )
 
 add_executable(global_gridmap_node
@@ -91,6 +93,7 @@ add_executable(inflation_node
 target_link_libraries(inflation_node
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+  ${OpenCV_LIBS}
 )
 
 add_executable(esdf_node
@@ -107,4 +110,5 @@ add_executable(esdf_node
 target_link_libraries(esdf_node
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+  ${OpenCV_LIBS}
 )
